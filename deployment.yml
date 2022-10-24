@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: loggenerator-app
+  labels:
+    app: loggenerator
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: loggenerator
+    spec:
+      containers:
+      - name: nginx
+        image: bithacker/loggenerator
+      env:
+      - name: SLEEP_TIME
+        value: "5"
